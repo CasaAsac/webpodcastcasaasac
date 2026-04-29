@@ -82,6 +82,7 @@
       gap: 6px;
       font-size: 1.15rem;
       color: var(--purple);
+      font-weight: 900;
     }
 
     .brand-meta small {
@@ -161,6 +162,7 @@
       padding: 7px 12px;
       border-radius: 999px;
       margin-bottom: 14px;
+      width: fit-content;
     }
 
     h1 {
@@ -208,25 +210,6 @@
       color: var(--purple);
     }
 
-    .stats {
-      display: grid;
-      gap: 14px;
-    }
-
-    .stat {
-      background: #fffaf0;
-      border: 2px solid rgba(91, 33, 182, 0.14);
-      border-radius: 18px;
-      padding: 16px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.8rem;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
     .section-title {
       margin-bottom: 18px;
     }
@@ -240,16 +223,14 @@
     .section-title p { color: var(--muted); max-width: 70ch; }
 
     .about-box h3,
-    .episode-card h3,
-    .newsletter-card h3 {
+    .episode-card h3 {
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
 
     .about-box p,
     .about-box li,
-    .episode-card p,
-    .newsletter-card p {
+    .episode-card p {
       color: #4e4760;
     }
 
@@ -258,6 +239,111 @@
       padding-left: 18px;
       display: grid;
       gap: 8px;
+    }
+
+    .radio-card {
+      background: linear-gradient(135deg, #fffaf0 0%, #ffffff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .radio-card::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      bottom: -60px;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: rgba(91, 33, 182, 0.08);
+    }
+
+    .radio-layout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .radio-kicker {
+      display: inline-block;
+      background: var(--purple);
+      color: white;
+      font-weight: 900;
+      font-size: 0.78rem;
+      padding: 7px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .radio-title {
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .radio-text,
+    .radio-now {
+      color: var(--muted);
+      max-width: 68ch;
+    }
+
+    .radio-now {
+      margin-top: 10px;
+      font-weight: 800;
+      color: var(--purple);
+    }
+
+    .radio-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .radio-btn {
+      border: 2px solid var(--purple);
+      background: var(--yellow);
+      color: var(--purple);
+      font-weight: 900;
+      border-radius: 999px;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .radio-btn:hover {
+      transform: translateY(-1px);
+      background: #f8b22d;
+    }
+
+    .radio-btn.secondary {
+      background: white;
+    }
+
+    .radio-btn.secondary:hover {
+      background: #f3edff;
+    }
+
+    .radio-icon {
+      width: 122px;
+      height: 122px;
+      border-radius: 32px;
+      background: var(--purple);
+      color: var(--yellow);
+      display: grid;
+      place-items: center;
+      font-size: 3.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .radio-audio {
+      width: 100%;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
     }
 
     .episodes-list {
@@ -294,36 +380,6 @@
     .coming-soon {
       opacity: 0.78;
       background: #fffaf3;
-    }
-
-    .contact-grid {
-      align-items: start;
-    }
-
-    .field {
-      display: grid;
-      gap: 8px;
-      margin: 14px 0;
-    }
-
-    .field input {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 2px solid rgba(91, 33, 182, 0.2);
-      outline: none;
-      font-size: 1rem;
-    }
-
-    .field input:focus {
-      border-color: var(--purple);
-    }
-
-    .saved-note {
-      margin-top: 10px;
-      color: var(--purple);
-      font-weight: 700;
-      min-height: 24px;
     }
 
     footer {
@@ -395,9 +451,21 @@
       }
 
       .card { padding: 18px; }
+
+      .radio-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .radio-icon {
+        width: 86px;
+        height: 86px;
+        border-radius: 24px;
+        font-size: 2.3rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
@@ -407,14 +475,14 @@
         </div>
         <div class="brand-meta">
           CASA ASAC
-         
         </div>
       </div>
+
       <nav class="nav">
         <a href="#home">Home</a>
         <a href="#chi-siamo">Chi siamo</a>
+        <a href="#web-radio">Web radio</a>
         <a href="#episodi">Episodi</a>
-        
       </nav>
     </div>
   </header>
@@ -432,19 +500,46 @@
             Uno spazio riconoscibile, accessibile e curato, pensato per unire approfondimento, ospiti e linguaggi contemporanei in una forma semplice da ascoltare e facile da condividere.
           </p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#episodi">Ascolta gli episodi</a>
-            <a class="btn btn-secondary" href="#chi-siamo">Scopri chi siamo</a>
+            <a class="btn btn-primary" href="#web-radio">Ascolta la web radio</a>
+            <a class="btn btn-secondary" href="#episodi">Vedi gli episodi</a>
           </div>
         </div>
+      </div>
+    </section>
 
-        </div>
+    <section id="web-radio">
+      <div class="container">
+        <article class="card radio-card">
+          <div class="radio-layout">
+            <div>
+              <span class="radio-kicker">WEB RADIO</span>
+              <h2 class="radio-title">Casa ASAC Radio</h2>
+              <p class="radio-text">
+                Una riproduzione continua in shuffle degli episodi disponibili. Premi play e lascia andare la radio: quando una puntata finisce, parte automaticamente un altro episodio casuale.
+              </p>
+              <p id="radioNowPlaying" class="radio-now">
+                Premi play per iniziare.
+              </p>
+
+              <div class="radio-controls">
+                <button class="radio-btn" id="radioPlayBtn" type="button">Play shuffle</button>
+                <button class="radio-btn secondary" id="radioNextBtn" type="button">Prossimo episodio</button>
+              </div>
+            </div>
+
+            <div class="radio-icon" aria-hidden="true">◉</div>
+          </div>
+
+          <audio id="radioPlayer" class="radio-audio" controls></audio>
+        </article>
+      </div>
     </section>
 
     <section id="chi-siamo">
       <div class="container">
         <div class="section-title">
           <h2>Chi siamo</h2>
-          <p>Una home essenziale che presenta il progetto Casa ASAC e il soggetto che lo promuove.</p>
+          <p>Casa ASAC è un progetto podcast promosso dal Collettivo Apeirogono.</p>
         </div>
 
         <div class="about-grid">
@@ -509,14 +604,17 @@
             </audio>
           </article>
 
-          <article class="card episode-card coming-soon">
+          <article class="card episode-card">
             <span class="episode-meta">Episodio 03</span>
-            <h3>Prossimamente</h3>
+            <h3>Cinema, città e immaginario — Conversazione con Vincenzo Ardito</h3>
             <div class="episode-details">
-              <div><strong>Descrizione:</strong> nuova puntata in arrivo.</div>
-              <div><strong>Ospiti:</strong> da definire</div>
+              <div><strong>Descrizione:</strong> Il terzo episodio di Casa ASAC è dedicato al cinema come spazio culturale, sociale e cittadino. Una conversazione sul rapporto tra sale, streaming, pubblico e nuove forme di fruizione, per capire se il cinema stia davvero sparendo o se stia cambiando il modo in cui lo abitiamo.</div>
+              <div><strong>Ospiti:</strong> Vincenzo Ardito</div>
             </div>
-            <audio controls disabled></audio>
+            <audio controls>
+              <source src="CinemaconVincenzoArdito.mp3.mpeg" type="audio/mpeg">
+              Il tuo browser non supporta l'audio HTML5.
+            </audio>
           </article>
 
           <article class="card episode-card coming-soon">
@@ -541,8 +639,6 @@
         </div>
       </div>
     </section>
-
-    
   </main>
 
   <footer>
@@ -570,6 +666,55 @@
     </div>
   </footer>
 
-  
+  <script>
+    const podcastEpisodes = [
+      {
+        title: "Episodio 01 — Conosciamoci meglio",
+        src: "BanalmenteLaPrimaPuntata.mp3.mpeg"
+      },
+      {
+        title: "Episodio 02 — Modelli di partecipazione politica",
+        src: "2puntataprogetto.mp3.mpeg"
+      },
+      {
+        title: "Episodio 03 — Cinema, città e immaginario",
+        src: "CinemaconVincenzoArdito.mp3.mpeg"
+      }
+    ];
+
+    const radioPlayer = document.getElementById("radioPlayer");
+    const radioPlayBtn = document.getElementById("radioPlayBtn");
+    const radioNextBtn = document.getElementById("radioNextBtn");
+    const radioNowPlaying = document.getElementById("radioNowPlaying");
+
+    let currentRadioIndex = -1;
+
+    function getRandomEpisodeIndex() {
+      if (podcastEpisodes.length === 1) return 0;
+
+      let nextIndex;
+      do {
+        nextIndex = Math.floor(Math.random() * podcastEpisodes.length);
+      } while (nextIndex === currentRadioIndex);
+
+      return nextIndex;
+    }
+
+    function playRandomEpisode() {
+      currentRadioIndex = getRandomEpisodeIndex();
+      const episode = podcastEpisodes[currentRadioIndex];
+
+      radioPlayer.src = episode.src;
+      radioNowPlaying.textContent = "In onda: " + episode.title;
+
+      radioPlayer.play().catch(function () {
+        radioNowPlaying.textContent = "Premi play sul player per avviare: " + episode.title;
+      });
+    }
+
+    radioPlayBtn.addEventListener("click", playRandomEpisode);
+    radioNextBtn.addEventListener("click", playRandomEpisode);
+    radioPlayer.addEventListener("ended", playRandomEpisode);
+  </script>
 </body>
 </html>
