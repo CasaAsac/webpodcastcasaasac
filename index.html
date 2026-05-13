@@ -85,15 +85,6 @@
       font-weight: 900;
     }
 
-    .brand-meta small {
-      display: block;
-      color: var(--muted);
-      font-weight: 600;
-      margin-top: 0;
-      font-size: 0.82rem;
-      line-height: 1.2;
-    }
-
     .nav {
       display: flex;
       gap: 16px;
@@ -106,9 +97,7 @@
 
     section { padding: 34px 0; }
 
-    .hero {
-      padding: 46px 0 28px;
-    }
+    .hero { padding: 46px 0 28px; }
 
     .hero-grid,
     .about-grid,
@@ -118,9 +107,7 @@
       gap: 20px;
     }
 
-    .hero-grid {
-      grid-template-columns: 1fr;
-    }
+    .hero-grid { grid-template-columns: 1fr; }
 
     .card {
       background: var(--card);
@@ -210,9 +197,7 @@
       color: var(--purple);
     }
 
-    .section-title {
-      margin-bottom: 18px;
-    }
+    .section-title { margin-bottom: 18px; }
 
     .section-title h2 {
       font-size: clamp(1.7rem, 3vw, 2.5rem);
@@ -319,13 +304,9 @@
       background: #f8b22d;
     }
 
-    .radio-btn.secondary {
-      background: white;
-    }
+    .radio-btn.secondary { background: white; }
 
-    .radio-btn.secondary:hover {
-      background: #f3edff;
-    }
+    .radio-btn.secondary:hover { background: #f3edff; }
 
     .radio-icon {
       width: 122px;
@@ -375,11 +356,6 @@
     .episode-card audio {
       width: 100%;
       margin-top: 6px;
-    }
-
-    .coming-soon {
-      opacity: 0.78;
-      background: #fffaf3;
     }
 
     footer {
@@ -446,15 +422,11 @@
         align-items: flex-start;
       }
 
-      .nav {
-        gap: 12px;
-      }
+      .nav { gap: 12px; }
 
       .card { padding: 18px; }
 
-      .radio-layout {
-        grid-template-columns: 1fr;
-      }
+      .radio-layout { grid-template-columns: 1fr; }
 
       .radio-icon {
         width: 86px;
@@ -473,9 +445,7 @@
         <div class="logo-wrap" aria-hidden="true">
           <img src="logo-casa-asac.png" alt="Logo Casa ASAC" style="width:100%;height:100%;object-fit:contain;border-radius:14px;" />
         </div>
-        <div class="brand-meta">
-          CASA ASAC
-        </div>
+        <div class="brand-meta">CASA ASAC</div>
       </div>
 
       <nav class="nav">
@@ -617,24 +587,30 @@
             </audio>
           </article>
 
-          <article class="card episode-card coming-soon">
+          <article class="card episode-card">
             <span class="episode-meta">Episodio 04</span>
-            <h3>Prossimamente</h3>
+            <h3>Freestyle, hip hop e scena pugliese — Conversazione con Gebra</h3>
             <div class="episode-details">
-              <div><strong>Descrizione:</strong> nuova puntata in arrivo.</div>
-              <div><strong>Ospiti:</strong> da definire</div>
+              <div><strong>Descrizione:</strong> Nella quarta puntata di Casa ASAC abbiamo parlato della scena freestyle barese e pugliese, entrando nel vivo di una realtà che continua a crescere e a farsi sentire. Al centro della chiacchierata c’è Cypher Rossani, punto di riferimento per MC, appassionati e nuove voci del territorio.</div>
+              <div><strong>Ospiti:</strong> Gebra</div>
             </div>
-            <audio controls disabled></audio>
+            <audio controls>
+              <source src="4puntataLowKeyTina.mp3" type="audio/mpeg">
+              Il tuo browser non supporta l'audio HTML5.
+            </audio>
           </article>
 
-          <article class="card episode-card coming-soon">
+          <article class="card episode-card">
             <span class="episode-meta">Episodio 05</span>
-            <h3>Prossimamente</h3>
+            <h3>Salute mentale giovani — Conversazione con Spazi Nuovi</h3>
             <div class="episode-details">
-              <div><strong>Descrizione:</strong> nuova puntata in arrivo.</div>
-              <div><strong>Ospiti:</strong> da definire</div>
+              <div><strong>Descrizione:</strong> Nella quinta puntata Casa ASAC ospita Massimiliano, responsabile della cooperativa Spazi Nuovi e protagonista del progetto Salute Mentale Giovani. Un confronto sul benessere psicologico delle nuove generazioni, sulle difficoltà che molti ragazzi vivono oggi e sull’importanza di costruire spazi sicuri, accessibili e non giudicanti.</div>
+              <div><strong>Ospiti:</strong> Massimiliano, cooperativa Spazi Nuovi</div>
             </div>
-            <audio controls disabled></audio>
+            <audio controls>
+              <source src="ep5podcastLowKeyTina.mp3" type="audio/mpeg">
+              Il tuo browser non supporta l'audio HTML5.
+            </audio>
           </article>
         </div>
       </div>
@@ -679,6 +655,14 @@
       {
         title: "Episodio 03 — Cinema, città e immaginario",
         src: "CinemaconVincenzoArdito.mp3.mpeg"
+      },
+      {
+        title: "Episodio 04 — Freestyle, hip hop e scena pugliese",
+        src: "4puntataLowKeyTina.mp3"
+      },
+      {
+        title: "Episodio 05 — Salute mentale giovani",
+        src: "ep5podcastLowKeyTina.mp3"
       }
     ];
 
